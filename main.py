@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import *
+from flask import Flask, request, abort, send_file, redirect
 from io import BytesIO
 import requests
 
@@ -28,7 +28,6 @@ def discord_image(cdn_content):
 
     # We're being embedded, send normal content
     if is_embed():
-        
         dresp = requests.get(f"https://cdn.discordapp.com/attachments/{cdn_content}")
 
         if dresp.status_code != 200:
