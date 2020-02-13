@@ -6,4 +6,4 @@ app = Flask(__name__)
 def hello():
     name = request.args.get("name", "World")
     agent = request.headers.get('User-Agent')
-    return f'Hello, {escape(name)}! {escape()}'
+    return f'Hello, {escape(name)}! {escape(agent)}'
