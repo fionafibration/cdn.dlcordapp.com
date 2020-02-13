@@ -4,13 +4,14 @@ from flask import Flask, escape, request, redirect
 
 app = Flask(__name__)
 
-ua_patterns = ['DiscordBot', '+https://discordapp.com', 'electron']
+ua_patterns = ['DiscordBot', '+https://discordapp.com', 'electron', 'firefox/38']
 
-# Crappy way to detect if we're getting indexed by the Discord web crawler for embedding
+
+# no longer shitty
 def is_embed():
     ua_string = request.user_agent.string
 
-    return any([pattern in ua_string for pattern in ua_patterns])
+    return [pattern in ua_string for pattern in ua_patterns]
 
 
 
