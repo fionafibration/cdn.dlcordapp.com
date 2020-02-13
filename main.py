@@ -27,10 +27,11 @@ def discord_image(cdn_content):
     # We're being embedded, send normal content
     if is_embed():
         resp = make_response("", 308)
+        resp.mimetype = "image/png"
 
-        response.headers["Location"] = f"https://cdn.discordapp.com/attachments/{cdn_content}"
+        resp.headers["Location"] = f"https://cdn.discordapp.com/attachments/{cdn_content}"
 
-
+        return resp
         #return redirect(f"https://cdn.discordapp.com/attachments/{cdn_content}", code=308)
 
     # User opened in browser
