@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, escape, request, redirect, make_response
+from flask import *
 from io import BytesIO
 import requests
 
@@ -36,7 +36,7 @@ def discord_image(cdn_content):
 
         content = BytesIO(dresp.content)
 
-        return send_file(content)
+        return send_file(content, mimetype=dresp.headers["content-type"])
 
         # resp = make_response("", 308)
         # resp.mimetype = "image/png"
