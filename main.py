@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from flask import Flask, escape, request, redirect, make_response
+from io import BytesIO
 
 app = Flask(__name__)
 
@@ -26,13 +27,22 @@ def discord_image(cdn_content):
 
     # We're being embedded, send normal content
     if is_embed():
-        resp = make_response("", 308)
-        resp.mimetype = "image/png"
+        
+        dresp = requests.get(f"https://cdn.discordapp.com/attachments/{cdn_content}")
 
-        resp.headers["Location"] = f"https://cdn.discordapp.com/attachments/{cdn_content}"
+        if dresp.status_code != 200:
+            return abort(404)
 
-        return resp
-        #return redirect(f"https://cdn.discordapp.com/attachments/{cdn_content}", code=308)
+        content = BytesIO(r.content)
+
+        return send_file(content)
+
+        # resp = make_response("", 308)
+        # resp.mimetype = "image/png"
+
+        # resp.headers["Location"] = f"https://cdn.discordapp.com/attachments/{cdn_content}"
+
+        # return resp
 
     # User opened in browser
     else:
