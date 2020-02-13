@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request, abort, send_file, redirect
+from flask import Flask, request, abort, send_file, redirect, make_response
 from io import BytesIO
+import logging
 import requests
 
 app = Flask(__name__)
@@ -10,10 +11,15 @@ ua_patterns = ['DiscordBot', '+https://discordapp.com', 'electron']
 
 # Crappy way to detect if we're getting indexed by the Discord web crawler for embedding
 def is_embed():
-    ua_string = request.user_agent.string
+    ua_string = request.user_agent.string.lower()
 
-    return any([pattern in ua_string for pattern in ua_patterns])
+    logging.warn(ua_string)
 
+    for pattern in ua_patterns:
+        if pattern.lower in ua_string:
+            return True
+
+    return False
 
 
 @app.route('/')
@@ -27,7 +33,7 @@ def hello():
 def discord_image(cdn_content):
 
     # We're being embedded, send normal content
-    if is_embed():
+    if is_embed() or True:
         dresp = requests.get(f"https://cdn.discordapp.com/attachments/{cdn_content}")
 
         if dresp.status_code != 200:
@@ -35,7 +41,13 @@ def discord_image(cdn_content):
 
         content = BytesIO(dresp.content)
 
-        return send_file(content, mimetype=dresp.headers["content-type"])
+        resp = make_response(send_file(content, mimetype=dresp.headers["content-type"]))
+
+        resp.headers["connection"] = "keep-alive"
+
+        resp.headers["vary"] = "User-Agent, Content-Encoding"
+
+        return resp
 
         # resp = make_response("", 308)
         # resp.mimetype = "image/png"
@@ -48,4 +60,3 @@ def discord_image(cdn_content):
     else:
         # NEVER GONNA GIVE YOU UP! NEVER GONNA LET YOU DOWN!!
         return redirect(f"https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-
