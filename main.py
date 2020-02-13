@@ -2,6 +2,7 @@
 
 from flask import Flask, escape, request, redirect, make_response
 from io import BytesIO
+import requests
 
 app = Flask(__name__)
 
