@@ -34,7 +34,7 @@ def discord_image(cdn_content):
         if dresp.status_code != 200:
             return abort(404)
 
-        content = BytesIO(r.content)
+        content = BytesIO(dresp.content)
 
         return send_file(content)
 
