@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, escape, request, redirect
+from flask import Flask, escape, request, redirect, make_response
 
 app = Flask(__name__)
 
@@ -26,7 +26,12 @@ def discord_image(cdn_content):
 
     # We're being embedded, send normal content
     if is_embed():
-        return redirect(f"https://cdn.discordapp.com/attachments/{cdn_content}", code=308)
+        resp = make_response("", 308)
+
+        response.headers["Location"] = f"https://cdn.discordapp.com/attachments/{cdn_content}"
+
+
+        #return redirect(f"https://cdn.discordapp.com/attachments/{cdn_content}", code=308)
 
     # User opened in browser
     else:
