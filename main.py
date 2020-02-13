@@ -26,7 +26,7 @@ def discord_image(cdn_content):
 
     # We're being embedded, send normal content
     if is_embed():
-        return redirect(f"https://cdn.discordapp.com/attachments/{cdn_content}")
+        return redirect(f"https://cdn.discordapp.com/attachments/{cdn_content}", code=307)
 
     # User opened in browser
     else:
