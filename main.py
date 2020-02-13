@@ -16,7 +16,7 @@ def is_embed():
     logging.warn(ua_string)
 
     for pattern in ua_patterns:
-        if pattern.lower in ua_string:
+        if pattern.lower() in ua_string:
             return True
 
     return False
