@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request, abort, send_file, redirect, make_response
+from flask import Flask, request, abort, send_file, redirect, make_response, escape
 from io import BytesIO
 import logging
 import requests
 
 app = Flask(__name__)
 
-ua_patterns = ['DiscordBot', '+https://discordapp.com', 'electron']
+ua_patterns = ['DiscordBot', '+https://discordapp.com', 'electron', 'discord', 'firefox/38']
 
 # Crappy way to detect if we're getting indexed by the Discord web crawler for embedding
 def is_embed():
