@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='normalize.min.css') }}">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='milligram.min.css') }}">
 
@@ -44,8 +44,18 @@
                         <option value="cdn.dlcordapp.com">cdn.dlcordapp.com</option>
                         <option value="cdn.dircordapp.com">cdn.dircordapp.com</option>
                     </select>
-                </fieldset>
 
+                    <label for="alts">Enable Alternative Links</label>
+                    <input type="checkbox" id="alts" name="alts" value="Enable Alts">
+
+                    <label for="memeselect">Meme</label>
+                    <select id="memeselect" disabled>
+                      <option value="0">Never Gonna Give You Up</option>
+                      <option value="1">Thunder Cross Split Attack</option>
+                      <option value="2">Steamed Hams</option>
+                      <option value="3">Curb Your Enthusiasm</option>
+                    </select>
+                </fieldset>
 
             <code id="linkout">
                 cdn.discordapp.com/example

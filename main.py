@@ -10,6 +10,24 @@ app = Flask(__name__)
 
 ua_patterns = ['DiscordBot', '+https://discordapp.com', 'electron', 'discord', 'firefox/38']
 
+
+
+MEMES = [
+
+    # Rick roll
+    "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+
+    # Thunder Cross Split Attack
+    "https://www.reddit.com/r/YouFellForItFool/comments/cjlngm/you_fell_for_it_fool/",
+
+    # Steamed Hams
+    "https://www.youtube.com/watch?v=4jXEuIHY9ic",
+
+    # Curb your enthusiasm
+    "https://www.youtube.com/watch?v=X-KwYX2u8e4",
+]
+
+
 # Crappy way to detect if we're getting indexed by the Discord web crawler for embedding
 def is_embed():
     ua_string = request.user_agent.string.lower()
@@ -33,8 +51,17 @@ def index():
 CDN_REGEX = re.compile("""([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50}\/)([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50}\/)([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50})""")
 
 @app.route('/attachments/<path:cdn_content>')
-def discord_image(cdn_content):
+def barepath(cdn_content):
+    return discord_image(cdn_content)
 
+
+@app.route('/attachments/shard<int:extra>/<path:cdn_content>')
+def specific_path(extra, cdn_content):
+    return discord_image(cdn_content, extra)
+
+
+
+def discord_image(cdn_content, meme=0):
     match = CDN_REGEX.match(cdn_content)
 
     # We're being embedded, send normal content
@@ -72,4 +99,11 @@ def discord_image(cdn_content):
     # User opened in browser
     else:
         # NEVER GONNA GIVE YOU UP! NEVER GONNA LET YOU DOWN!!
-        return redirect(f"https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
+        try:
+            meme_url = MEMES[meme]
+        except:
+            abort(401)
+
+        else:
+            return redirect(meme_url)
