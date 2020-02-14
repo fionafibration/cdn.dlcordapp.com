@@ -1,71 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Discord Trickery</title>
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='normalize.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='normalize.css') }}">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='milligram.min.css') }}">
 
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
-    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" />
 
 
 </head>
 
 <body>
-<div class="container">
-    <div class="row">
-        <div class="column">
-            <h1>Welcome to dlcordapp.com</h1>
+    <div class="container">
+        <div class="row">
+            <div class="column"></div>
+            <div class="column cnt">
+                <h1 id="welcome_text"></h1>
+                <script>document.getElementById('welcome_text').innerHTML = `Welcome to ${document.location}`</script>
 
-            <p>We redirect your Discord memes to a Rick Roll. That is the only purpose of all this garbage. Enjoy.</p>
+                <p>We redirect your Discord memes to a Rick Roll. That is the only purpose of all this garbage. Enjoy.
+                </p>
 
 
-            <form>
-                <fieldset>
-                    <label for="discordurl">Discord CDN URL</label>
-                    <input id="discordurl" type="text" placeholder="https://cdn.discordapp.com/.....">
+                <form>
+                    <fieldset>
+                        <label for="discordurl">Discord CDN URL</label>
+                        <input id="discordurl" type="text" placeholder="https://cdn.discordapp.com/.....">
 
-                    <label for="urlselect">URL To Use</label>
-                    <select id="urlselect">
-                        <option value="dlcordapp.com">dlcordapp.com</option>
-                        <option value="dircordapp.com">dircordapp.com</option>
-                        <option value="www.dlcordapp.com">www.dlcordapp.com</option>
-                        <option value="www.dircordapp.com">www.dircordapp.com</option>
-                        <option value="cdn.dlcordapp.com">cdn.dlcordapp.com</option>
-                        <option value="cdn.dircordapp.com">cdn.dircordapp.com</option>
-                    </select>
+                        <label for="urlselect">URL To Use</label>
+                        <select id="urlselect">
+                            <option value="dlcordapp.com">dlcordapp.com</option>
+                            <option value="dircordapp.com">dircordapp.com</option>
+                            <option value="www.dlcordapp.com">www.dlcordapp.com</option>
+                            <option value="www.dircordapp.com">www.dircordapp.com</option>
+                            <option value="cdn.dlcordapp.com">cdn.dlcordapp.com</option>
+                            <option value="cdn.dircordapp.com">cdn.dircordapp.com</option>
+                        </select>
 
-                    <label for="alts">Enable Alternative Links</label>
-                    <input type="checkbox" id="alts" name="alts" value="Enable Alts">
+                        <label for="alts">Enable Alternative Links</label>
+                        <input type="checkbox" id="alts" name="alts" value="Enable Alts">
 
-                    <label for="memeselect">Meme</label>
-                    <select id="memeselect" disabled>
-                      <option value="0">Never Gonna Give You Up</option>
-                      <option value="1">Thunder Cross Split Attack</option>
-                      <option value="2">Steamed Hams</option>
-                      <option value="3">Curb Your Enthusiasm</option>
-                    </select>
-                </fieldset>
+                        <label for="memeselect">Meme</label>
+                        <select id="memeselect" disabled>
+                            <option value="0">Never Gonna Give You Up</option>
+                            <option value="1">Thunder Cross Split Attack</option>
+                            <option value="2">Steamed Hams</option>
+                            <option value="3">Curb Your Enthusiasm</option>
+                        </select>
+                    </fieldset>
 
-            <code id="linkout">
+                    <code id="linkout">
                 cdn.discordapp.com/example
             </code>
 
-            </form>
+                </form>
+            </div>
+            <div class="column"></div>
         </div>
     </div>
-</div>
 </body>
 
 <script src="{{ url_for('static', filename='main.js') }}"></script>
+
 </html>

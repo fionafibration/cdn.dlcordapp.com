@@ -3,16 +3,27 @@ body {
     color: white;
 }
 
-
-.container {
-    margin-top: 10rem;
-    padding: 3rem;
+.container .column.cnt {
+    background-color:#4a4039;
     border: 1px solid darkgrey;
     border-radius: 20px;
+    margin-top: 4rem;
+    padding: 1rem;
+}
+
+@media (min-width: 80.0rem) {
+    .container .column.cnt {
+        margin-top: 10rem;
+        padding: 3rem; 
+    }
 }
 
 fieldset > * {
     color: white;
+}
+
+option {
+    color: black;
 }
 
 code {

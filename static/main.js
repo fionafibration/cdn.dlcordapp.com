@@ -1,24 +1,15 @@
 let discordURL = document.getElementById('discordurl');
-
 let memeURL = document.getElementById('urlselect');
-
 let output = document.getElementById('linkout');
-
 let enableAlts = document.getElementById('alts');
-
 let memeAlts = document.getElementById('memeselect');
+let CDN_REGEX = /^(https:\/\/cdn.discordapp.com\/attachments\/)([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50}\/)([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50}\/)([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50})$/;
 
 discordURL.addEventListener('input', updateURL);
-
 memeURL.addEventListener('change', updateURL);
-
-enableAlts.addEventListener('click', controlAlts);
-
-enableAlts.addEventListener('click', updateURL);
-
 memeAlts.addEventListener('change', updateURL);
-
-let CDN_REGEX = /^(https:\/\/cdn.discordapp.com\/attachments\/)([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50}\/)([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50}\/)([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50})$/;
+enableAlts.addEventListener('click', updateURL);
+enableAlts.addEventListener('click', controlAlts);
 
 function updateURL() {
     let content = discordURL.value;
