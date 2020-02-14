@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, request, abort, send_file, redirect, make_response, escape
+from flask import Flask, request, abort, send_file, redirect, make_response, render_template
 from io import BytesIO
 import logging
 import requests
@@ -23,9 +23,8 @@ def is_embed():
 
 
 @app.route('/')
-def hello():
-    agent = request.headers.get('User-Agent')
-    return f'User Agent String: {escape(agent)}'
+def index():
+    return render_template('index.html')
 
 
 

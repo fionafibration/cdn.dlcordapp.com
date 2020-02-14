@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="google-appengine-python" name="Google App Engine (Python)">
+      <configuration>
+        <option name="rootFolder" value="D:\Fin\Documents\cdn.dlcordapp.com" />
+        <option name="sdkFolder" value="D:/Programs/Google/Cloud SDK/google-cloud-sdk\platform\google_appengine" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="Flask">
+    <option name="enabled" value="true" />
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Google App Engine SDK" level="project" />
+  </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+  </component>
+</module>
