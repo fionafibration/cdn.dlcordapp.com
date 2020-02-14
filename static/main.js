@@ -12,34 +12,39 @@ enableAlts.addEventListener('click', updateURL);
 enableAlts.addEventListener('click', controlAlts);
 
 function updateURL() {
-    let content = discordURL.value;
-    let target = memeURL.value;
+	let content = discordURL.value;
+	let target = memeURL.value;
 
-    let match = CDN_REGEX.exec(content);
+	let match = CDN_REGEX.exec(content);
 
-    if (match != null) {
-        let uuid1 = match[2];
-        let uuid2 = match[3];
-        let file = match[4];
+	if (match != null) {
+		let uuid1 = match[2];
+		let uuid2 = match[3];
+		let file = match[4];
 
-        if (enableAlts.checked) {
-          var memeshard = `shard${memeAlts.value}/`;
-        }
-        else {
-          var memeshard = "";
-        }
+		if (enableAlts.checked) {
+			var memeshard = `shard${memeAlts.value}/`;
+		}
+		else {
+			var memeshard = "";
+		}
 
-        console.log(memeshard);
+		console.log(memeshard);
 
-        console.log("Alts: " + enableAlts.checked);
+		console.log("Alts: " + enableAlts.checked);
 
-        console.log("Dis: " + memeAlts.disabled);
+		console.log("Dis: " + memeAlts.disabled);
 
-        output.innerText = `https://${target}/attachments/${memeshard}${uuid1}${uuid2}${file}`;
-    }
+		output.innerText = `https://${target}/attachments/${memeshard}${uuid1}${uuid2}${file}`;
+	}
 }
 
 function controlAlts() {
-    memeAlts.disabled = ! enableAlts.checked;
-    updateURL();
+	memeAlts.disabled = !enableAlts.checked;
+	updateURL();
+}
+
+
+function gotogit() {
+	window.location = 'https://github.com/ThePlasmaRailgun/cdn.dlcordapp.com'
 }
