@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Discord Trickery</title>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-blue.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 
@@ -19,59 +21,87 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" />
 
-
+    <script>var isIE = /*@cc_on!@*/false || !!document.documentMode; (isIE ? window.location.replace("https://www.ezcomputersolutions.com/blog/stop-using-internet-explorer/") : console.log("No IE detected :)"))</script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="column"></div>
-            <div class="column cnt">
-                <h1 id="welcome_text"></h1>
-                <script>document.getElementById('welcome_text').innerHTML = `Welcome to ${document.location}`</script>
-
-                <p>We redirect your Discord memes to a Rick Roll. That is the only purpose of all this garbage. Enjoy.
-                </p>
-
-
-                <form>
-                    <fieldset>
-                        <label for="discordurl">Discord CDN URL</label>
-                        <input id="discordurl" type="text" placeholder="https://cdn.discordapp.com/.....">
-
-                        <label for="urlselect">URL To Use</label>
-                        <select id="urlselect">
-                            <option value="dlcordapp.com">dlcordapp.com</option>
-                            <option value="dircordapp.com">dircordapp.com</option>
-                            <option value="www.dlcordapp.com">www.dlcordapp.com</option>
-                            <option value="www.dircordapp.com">www.dircordapp.com</option>
-                            <option value="cdn.dlcordapp.com">cdn.dlcordapp.com</option>
-                            <option value="cdn.dircordapp.com">cdn.dircordapp.com</option>
-                        </select>
-
-                        <label for="alts">Enable Alternative Links</label>
-                        <input type="checkbox" id="alts" name="alts" value="Enable Alts">
-
-                        <label for="memeselect">Meme</label>
-                        <select id="memeselect" disabled>
-                            <option value="0">Never Gonna Give You Up</option>
-                            <option value="1">Thunder Cross Split Attack</option>
-                            <option value="2">Steamed Hams</option>
-                            <option value="3">Curb Your Enthusiasm</option>
-                        </select>
-                    </fieldset>
-
-                    <code id="linkout">
-                cdn.discordapp.com/example
-            </code>
-
-                </form>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+            <div class="mdl-layout__header-row portfolio-logo-row">
+                <span class="mdl-layout__title">
+                    <span style="font-family: IBM Plex Serif;" class="mdl-layout__title" id="welcome_text"></span>
+                    <script>document.getElementById('welcome_text').innerHTML = `Welcome to ${document.location}`</script>
+                </span>
             </div>
-            <div class="column"></div>
-        </div>
+        </header>
+
+        <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width portfolio-contact">
+                <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__supporting-text" style="box-sizing: border-box;display:block">
+                        <p>We redirect your Discord memes to a Rick Roll. That is the only purpose of all this
+                            garbage. Enjoy.
+                        </p>
+                        <form>
+                            <fieldset>
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="discordurl"
+                                        placeholder="https://cdn.discordapp.com/.....">
+                                    <label class="mdl-textfield__label" for="discordurl">Discord CDN
+                                        URL</label>
+                                </div>
+
+                                <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                                    <label class="mdl-selectfield__label" for="urlselect">URL To Use</label>
+                                    <select class="mdl-selectfield__select" id="urlselect">
+                                        <option value="dlcordapp.com">dlcordapp.com</option>
+                                        <option value="dircordapp.com">dircordapp.com</option>
+                                        <option value="www.dlcordapp.com">www.dlcordapp.com</option>
+                                        <option value="www.dircordapp.com">www.dircordapp.com</option>
+                                        <option value="cdn.dlcordapp.com">cdn.dlcordapp.com</option>
+                                        <option value="cdn.dircordapp.com">cdn.dircordapp.com</option>
+                                    </select>
+                                </div>
+
+                                <hr>
+
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="alts">
+                                    <span class="mdl-switch__label">Enable Alternative Links</span>
+                                    <input type="checkbox" id="alts" name="alts" value="Enable Alts"
+                                        class="mdl-switch__input">
+                                </label>
+                                <br><br>
+                                <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                                    <label class="mdl-selectfield__label" for="memeselect">Meme</label>
+                                    <select class="mdl-selectfield__select" id="memeselect" disabled>
+                                        <option value="0">Never Gonna Give You Up</option>
+                                        <option value="1">Thunder Cross Split Attack</option>
+                                        <option value="2">Steamed Hams</option>
+                                        <option value="3">Curb Your Enthusiasm</option>
+                                    </select>
+                                </div>
+
+                            </fieldset>
+                            <strong><hr></strong>
+
+                            <code id="linkout">cdn.discordapp.com/example</code>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <footer style="position: fixed; bottom:0; width:100%;" class="mdl-mini-footer">
+                <div class="mdl-mini-footer--left-section">
+                    <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
+                        <span class="visuallyhidden">Github</span>
+                    </button>
+                </div>
+            </footer>
+        </main>
     </div>
 </body>
 
+<script src="{{ url_for('static', filename='material.min.js') }}"></script>
 <script src="{{ url_for('static', filename='main.js') }}"></script>
 
 </html>
