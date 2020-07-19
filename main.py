@@ -25,6 +25,9 @@ MEMES = [
 
     # Curb your enthusiasm
     "https://www.youtube.com/watch?v=X-KwYX2u8e4",
+    
+    # The Spanish Inquisition
+    "https://www.youtube.com/watch?v=sAn7baRbhx4",
 ]
 
 
