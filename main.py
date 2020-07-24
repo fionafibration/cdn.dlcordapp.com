@@ -28,6 +28,9 @@ MEMES = [
     
     # The Spanish Inquisition
     "https://www.youtube.com/watch?v=sAn7baRbhx4",
+    
+    # Jebaited
+    "https://www.youtube.com/watch?v=d1YBv2mWll0",
 ]
 
 
