@@ -85,8 +85,11 @@ def discord_image(cdn_content, meme=0):
             return abort(401)
 
         # 10 mb stream limit
-        if dresp.headers['content-length'] >= 1e7:
-            return abort(403)
+        try:
+            if int(dresp.headers['content-length']) >= 1e7:
+                return abort(403)
+        except:
+            return abort(501)
 
         content = BytesIO(dresp.content)
 
