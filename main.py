@@ -34,6 +34,9 @@ MEMES = [
 
     # Get Stickbugged
     "https://www.youtube.com/watch?v=fC7oUOUEEi4",
+    
+    # Guts Man's Ass
+    "https://www.youtube.com/watch?v=DFtZ0SbWTrg",
 ]
 
 
