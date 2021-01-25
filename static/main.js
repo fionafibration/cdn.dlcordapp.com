@@ -35,7 +35,7 @@ function updateURL() {
 
 		console.log("Dis: " + memeAlts.disabled);
 
-		output.innerText = `https://${target}/attachments/${memeshard}${uuid1}${uuid2}${file}`;
+		//output.innerText = `https://${target}/attachments/${memeshard}${uuid1}${uuid2}${file}`;
 	}
 }
 

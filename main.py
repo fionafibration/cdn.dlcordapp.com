@@ -64,12 +64,14 @@ CDN_REGEX = re.compile("""([^{}|\\^\[\]`<>#;\/?:@&=+$,]{1,50}\/)([^{}|\\^\[\]`<>
 
 @app.route('/attachments/<path:cdn_content>')
 def barepath(cdn_content):
-    return discord_image(cdn_content)
+    return render_template('index.html')
+    #return discord_image(cdn_content)
 
 
 @app.route('/attachments/shard<int:extra>/<path:cdn_content>')
 def specific_path(extra, cdn_content):
-    return discord_image(cdn_content, extra)
+    return render_template('index.html')
+    #return discord_image(cdn_content, extra)
 
 
 
